@@ -2,7 +2,7 @@ $group = "rg-aks-mtu"
 $vnet = "vnet"
 $aksSubnet = "aks"
 $clusterName = "mtucluster"
-# 
+
 # create the resource group
 az group create -n $group -l eastus2 --query id -o tsv
 
