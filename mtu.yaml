@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: mtu-adjuster
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: mtu-adjuster
+  template:
+    metadata:
+      labels:
+        name: mtu-adjuster
+    spec:
+      hostNetwork: true # required to access the host network
+      containers:
+      - name: mtu-setter
+        image: busybox
+        command: ["/bin/sh", "-c"]
+        args:
+        - "ip link set dev eth0 mtu 9000 && sleep infinity"
+        securityContext:
+          privileged: true
