@@ -56,3 +56,6 @@ apt update && apt install iproute2 -y
 # ping another pod
 ping 10.0.0.4 -s 3870 -M do
 ```
+
+## Links
+- [Performance Tuning AKS for Network Intensive Workloads](https://blog.aks.azure.com/2025/07/25/network-perf-aks)
